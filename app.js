@@ -49,6 +49,7 @@ function setOperation(operator){
             mainScreen.textContent = '';
         }
         if(valid === false){
+            currentNumber = '0';
             reset()
         }
     }
@@ -89,12 +90,12 @@ function operate(operator){
 
 function clear(){
     mainScreen.textContent = '0';
+    currentNumber = '0'
     reset();
 }
 
 function reset(){
     secondScreen.textContent = ' ';
-    currentNumber = '0';
     prevNumber = '';
     prevOperator = '';
 }
