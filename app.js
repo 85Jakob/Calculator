@@ -62,12 +62,13 @@ function setOperation(operator){
 }
 
 function solve(){
-    operate(prevOperator);
-    secondScreen.textContent = ' ';
-    currentNumber = prevNumber;
-    mainScreen.textContent = prevNumber;
-    
-    reset()
+    if(prevNumber != ''){
+        operate(prevOperator);
+        secondScreen.textContent = ' ';
+        currentNumber = prevNumber;
+        mainScreen.textContent = prevNumber;
+        reset();
+    }
 }
 
 function operate(operator){
