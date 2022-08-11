@@ -6,9 +6,13 @@ const mainScreen = document.getElementById('main-screen');
 const secondScreen = document.getElementById('second-screen');
 const numBtn = document.querySelectorAll('[data-number]');
 const oppBtn = document.querySelectorAll('[data-operator]');
+const clearBtn = document.getElementById('clear');
+const equalsBtn = document.getElementById('equals');
 
 numBtn.forEach((button) => button.addEventListener('click', () => enterNumber(button.textContent)));
 oppBtn.forEach((button) => button.addEventListener('click', () => setOperation(button.textContent)));
+clearBtn.onclick = () => clear();
+equalsBtn.onclick = () => solve();
 
 function enterNumber(number) {
     mainScreen.textContent = '';
@@ -38,6 +42,15 @@ function setOperation(operator){
     }
 }
 
+function solve(){
+    operate(prevOperator);
+    secondScreen.textContent = ' ';
+    currentNumber = prevNumber;
+    mainScreen.textContent = prevNumber;
+    
+    reset()
+}
+
 function operate(operator){
     valid = true;
     if(operator === 'x'){
@@ -59,6 +72,11 @@ function operate(operator){
         }
     }
     return valid;
+}
+
+function clear(){
+    mainScreen.textContent = ' ';
+    reset();
 }
 
 function reset(){
