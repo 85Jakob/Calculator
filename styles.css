@@ -1,5 +1,5 @@
 *{
-    border: 1px solid red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .main{
@@ -14,17 +14,25 @@
     border: 2px solid black;   
     padding: 20px;
     align-items: center;
+    background-color: #E8EBE4;
+    border-radius: 20px;
 }
 .screen{
     border: 2px solid black;
-    height: 150px;
+    height: 120px;
     margin-bottom: 20px;
+    background-color: #D2D5DD;
+    
 }
 .top-screen{
     height: 50px;
 }
 .bottom-screen{
-    height: 100px;
+    height: 70px;
+    text-align: right;
+    font-size: 55px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .button-block{
@@ -39,6 +47,7 @@
 }
 .btn {
     background-color: #A8D0DB;
+    font-size: 20px;
 }
 
 .btn:hover {
@@ -60,5 +69,18 @@
 }
 
 .opp:active{
+    background-color: #2B4570;
+}
+
+.other {
+    background-color: #999AC6;
+}
+
+.other:hover {
+    background-color: #B8BACF;
+    cursor: pointer;
+}
+
+.other:active{
     background-color: #2B4570;
 }
