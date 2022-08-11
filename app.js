@@ -1,4 +1,4 @@
-let currentNumber = '';
+let currentNumber = '0';
 let prevNumber = '';
 let prevOperator = '';
 
@@ -8,15 +8,25 @@ const numBtn = document.querySelectorAll('[data-number]');
 const oppBtn = document.querySelectorAll('[data-operator]');
 const clearBtn = document.getElementById('clear');
 const equalsBtn = document.getElementById('equals');
+const backBtn = document.getElementById('backspace');
 
 numBtn.forEach((button) => button.addEventListener('click', () => enterNumber(button.textContent)));
 oppBtn.forEach((button) => button.addEventListener('click', () => setOperation(button.textContent)));
 clearBtn.onclick = () => clear();
 equalsBtn.onclick = () => solve();
+backBtn.onclick = () => undo();
 
 function enterNumber(number) {
     mainScreen.textContent = '';
+    if(currentNumber === '0'){
+        currentNumber = ''
+    }
     currentNumber =  currentNumber + number;
+    mainScreen.textContent = currentNumber;
+}
+
+function undo(){
+    currentNumber = currentNumber.slice(0, -1);
     mainScreen.textContent = currentNumber;
 }
 
@@ -53,14 +63,15 @@ function solve(){
 
 function operate(operator){
     valid = true;
+    
     if(operator === 'x'){
-        prevNumber = '' + (parseInt(prevNumber) * parseInt(currentNumber));
+        prevNumber = '' + Math.round((parseFloat(prevNumber) * parseFloat(currentNumber))*1000)/1000;
     }
     else if(operator === '-'){
-        prevNumber = '' + (parseInt(prevNumber) - parseInt(currentNumber) );
+        prevNumber = '' + Math.round((parseFloat(prevNumber) - parseFloat(currentNumber))*1000)/1000;
     }
     else if(operator === '+'){
-        prevNumber = '' + (parseInt(prevNumber) + parseInt(currentNumber));
+        prevNumber = '' + Math.round((parseFloat(prevNumber) + parseFloat(currentNumber))*1000)/1000;
     }
     else if(operator === '÷'){
         if(parseInt(currentNumber) === 0){
@@ -68,20 +79,20 @@ function operate(operator){
             valid = false;
         }
         else{
-            prevNumber = '' + (parseInt(prevNumber) / parseInt(currentNumber));
+            prevNumber = '' + Math.round((parseFloat(prevNumber) / parseFloat(currentNumber))*1000)/1000;
         }
     }
     return valid;
 }
 
 function clear(){
-    mainScreen.textContent = ' ';
+    mainScreen.textContent = '0';
     reset();
 }
 
 function reset(){
     secondScreen.textContent = ' ';
-    currentNumber = '';
+    currentNumber = '0';
     prevNumber = '';
     prevOperator = '';
 }
