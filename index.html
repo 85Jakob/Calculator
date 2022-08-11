@@ -11,12 +11,12 @@
     <main class="main">
         <div class="calc">
             <div class="screen">
-                <div class="top-screen"></div>
-                <div class="bottom-screen"></div>
+                <div class="top-screen" id="second-screen"></div>
+                <div class="bottom-screen" id="main-screen">0</div>
             </div>
             <div class="button-block">
-                <button class="btn span-2" id="clear">Clear</button>
-                <button class="btn" id="backspace"><=</button>
+                <button class="btn span-2 other" id="clear">Clear</button>
+                <button class="btn other" id="backspace"><=</button>
                 <button class="btn opp" data-operator>÷</button>
 
                 <button class="btn" data-number>7</button>
@@ -35,8 +35,8 @@
                 <button class="btn opp" data-operator>+</button>
                 
                 <button class="btn span-2" data-number>0</button>
-                <button class="btn" id="pointBtn">.</button>
-                <button class="btn opp" id="equalsBtn">=</button>
+                <button class="btn" data-number>.</button>
+                <button class="btn" id="equals">=</button>
                 
 
             </div>
