@@ -17,12 +17,14 @@ equalsBtn.onclick = () => solve();
 backBtn.onclick = () => undo();
 
 function enterNumber(number) {
-    mainScreen.textContent = '';
-    if(currentNumber === '0'){
-        currentNumber = ''
+    if(currentNumber.length < 9){
+        mainScreen.textContent = '';
+        if(currentNumber === '0'){
+            currentNumber = ''
+        }
+        currentNumber =  currentNumber + number;
+        mainScreen.textContent = currentNumber;
     }
-    currentNumber =  currentNumber + number;
-    mainScreen.textContent = currentNumber;
 }
 
 function undo(){
