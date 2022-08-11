@@ -33,25 +33,31 @@ function undo(){
 }
 
 function setOperation(operator){
-    if(prevNumber === ''){
-        secondScreen.textContent = currentNumber + ' ' + operator;
-        prevNumber = currentNumber;
-        currentNumber = '';
-        prevOperator = operator;
-        mainScreen.textContent = '';
-    }
-    else{
-        valid = operate(prevOperator);
-        secondScreen.textContent = prevNumber + ' ' + operator;
-        currentNumber = '';
-        prevOperator = operator;
-        if(valid === true){
+    if(currentNumber != ''){
+        if(prevNumber === ''){
+            secondScreen.textContent = currentNumber + ' ' + operator;
+            prevNumber = currentNumber;
+            currentNumber = '';
+            prevOperator = operator;
             mainScreen.textContent = '';
         }
-        if(valid === false){
-            currentNumber = '0';
-            reset()
+        else{
+            valid = operate(prevOperator);
+            secondScreen.textContent = prevNumber + ' ' + operator;
+            currentNumber = '';
+            prevOperator = operator;
+            if(valid === true){
+                mainScreen.textContent = '';
+            }
+            if(valid === false){
+                currentNumber = '0';
+                reset()
+            }
         }
+    }
+    else{
+        prevOperator = operator;
+        secondScreen.textContent = prevNumber + ' ' + operator;
     }
 }
 
