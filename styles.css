@@ -1,0 +1,64 @@
+*{
+    border: 1px solid red;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+}
+.calc{
+    width: 350px;
+    height: 600px;
+    border: 2px solid black;   
+    padding: 20px;
+    align-items: center;
+}
+.screen{
+    border: 2px solid black;
+    height: 150px;
+    margin-bottom: 20px;
+}
+.top-screen{
+    height: 50px;
+}
+.bottom-screen{
+    height: 100px;
+}
+
+.button-block{
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.span-2{
+    grid-column: span 2;
+}
+.btn {
+    background-color: #A8D0DB;
+}
+
+.btn:hover {
+    background-color: #7180AC;
+    cursor: pointer;
+}
+
+.btn:active{
+    background-color: #2B4570;
+}
+
+.opp{
+    background-color: #E49273;
+}
+
+.opp:hover {
+    background-color: #A37A74;
+    cursor: pointer;
+}
+
+.opp:active{
+    background-color: #2B4570;
+}
