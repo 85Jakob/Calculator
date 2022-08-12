@@ -15,6 +15,7 @@ oppBtn.forEach((button) => button.addEventListener('click', () => setOperation(b
 clearBtn.onclick = () => clear();
 equalsBtn.onclick = () => solve();
 backBtn.onclick = () => undo();
+window.addEventListener('keydown', keyboardHandler)
 
 function enterNumber(number) {
     if(currentNumber.length < 9){
@@ -105,4 +106,29 @@ function reset(){
     secondScreen.textContent = ' ';
     prevNumber = '';
     prevOperator = '';
+}
+
+function keyboardHandler(e) {
+    if (e.key >= 0 && e.key <= 9 || e.key === '.'){
+        enterNumber(e.key);
+    }
+    if (e.key === '=' || e.key === 'Enter'){
+        solve();
+    }
+    if (e.key === 'Backspace'){
+        undo();
+    }
+    if (e.key === 'Escape'){
+        clear();
+    }
+    if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/'){
+        let sign = e.key;
+        if(e.key === '/'){
+            sign = '÷';
+        }
+        if(e.key === '*'){
+            sign = 'x';
+        }
+        setOperation(sign);
+    }
 }
